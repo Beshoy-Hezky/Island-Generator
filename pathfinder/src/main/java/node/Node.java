@@ -3,6 +3,10 @@ package node;
 public class Node<T> {
     T node;
 
+    double x; // x, y, z
+    double y;
+    double z;
+
     /**
      *
      * @param node pass in a node

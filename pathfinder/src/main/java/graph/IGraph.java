@@ -1,7 +1,8 @@
 package graph;
 
+import node.Node;
+
 public interface IGraph {
 
-    public void setNode();
-
+    void AddNode(Node node);
 }
