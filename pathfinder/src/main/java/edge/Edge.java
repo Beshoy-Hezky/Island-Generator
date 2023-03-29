@@ -3,10 +3,10 @@ package edge;
 import node.Node;
 
 public class Edge {
-    Node first;
-    Node second;
+    private final Node first;
+    private final Node second;
 
-    float weight;
+    private final double weight;
 
     /**
      * @param node1 node where the edge is extending out
@@ -43,5 +43,11 @@ public class Edge {
         return second;
     }
 
-
+    /**
+     *
+     * @return the weight of a double
+     */
+    public double getWeight(){
+        return this.weight;
+    }
 }
