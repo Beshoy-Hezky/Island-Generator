@@ -8,10 +8,9 @@ public class Node<T> {
     private double z;
 
     /**
-     *
      * @param node pass in a node
      */
-    public Node(T node){
+    public Node(T node) {
         this.node = node;
         this.x = 0;
         this.y = 0;
@@ -19,35 +18,36 @@ public class Node<T> {
     }
 
     /**
-     *
      * @param node the object
-     * @param x x coordinate
-     * @param y y coordinate
-     * @param z z coordinate
+     * @param x    x coordinate
+     * @param y    y coordinate
+     * @param z    z coordinate
      */
-    public Node(T node, float x, float y, float z){
+    public Node(T node, float x, float y, float z) {
         this.node = node;
         this.x = x;
         this.x = x;
         this.x = x;
     }
+
     /**
-     *
      * @return the node
      */
-    public T getNode(){
+    public T getNode() {
         return this.node;
     }
 
-    public double getX(){
+    public double getX() {
         return this.x;
     }
 
-    public double getY(){
+    public double getY() {
         return this.y;
     }
 
-    public double getZ(){
+    public double getZ() {
         return this.z;
     }
+
 }
+
