@@ -1,17 +1,17 @@
 package edge;
 
 import node.Node;
-import uniquelist.UniqueList;
+import datastructures.UniqueList;
 
-public class Edges extends UniqueList<Edge> {
+public class Edges<T> extends UniqueList<Edge<T>> {
 
     /**
      *
      * @param node the node you want to check
      * @return true if the node is found in one of the edges
      */
-    public boolean contains(Node node){
-        for (Edge edge : this){
+    public boolean contains(Node<T> node){
+        for (Edge<T> edge : this){
             if (edge.getNode1().equals(node) || edge.getNode2().equals(node)){
                 return true;
             }
@@ -24,9 +24,9 @@ public class Edges extends UniqueList<Edge> {
      * @param node the node you want to check
      * @return the edge that contains the node
      */
-    public Edge EdgeContain(Node node){
-        Edge answer = null;
-        for (Edge edge : this){
+    public Edge<T> EdgeContain(Node<T> node){
+        Edge<T> answer = null;
+        for (Edge<T> edge : this){
             if (edge.getNode1().equals(node) || edge.getNode2().equals(node)){
                 answer = edge;
             }

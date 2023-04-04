@@ -2,9 +2,9 @@ package edge;
 
 import node.Node;
 
-public class Edge {
-    private final Node first;
-    private final Node second;
+public class Edge<T> {
+    private final Node<T> first;
+    private final Node<T> second;
 
     private final double weight;
 
@@ -13,7 +13,7 @@ public class Edge {
      * @param node2 node where the edge is extending to
      * @param weight weight of the edge
      */
-    public Edge(Node node1, Node node2, float weight){
+    public Edge(Node<T> node1, Node<T> node2, float weight){
         this.first = node1;
         this.second = node2;
         this.weight = weight;
@@ -23,7 +23,7 @@ public class Edge {
      * @param node1 node where the edge is extending out
      * @param node2 node where the edge is extending to
      */
-    public Edge(Node node1, Node node2){
+    public Edge(Node<T> node1, Node<T> node2){
         this.first = node1;
         this.second = node2;
         this.weight = 1.0f;
@@ -32,14 +32,14 @@ public class Edge {
     /**
      * @return the first node in a directed edge
      */
-    public Node getNode1() {
+    public Node<T> getNode1() {
         return first;
     }
 
     /**
      * @return the second node in a directed edge
      */
-    public Node getNode2() {
+    public Node<T> getNode2() {
         return second;
     }
 

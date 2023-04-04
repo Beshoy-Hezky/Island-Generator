@@ -1,4 +1,4 @@
-package uniquelist;
+package datastructures;
 
 import java.util.ArrayList;
 

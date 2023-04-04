@@ -2,7 +2,11 @@ package graph;
 
 import node.Node;
 
-public interface IGraph {
+import java.util.Set;
 
-    void AddNode(Node node);
+public interface IGraph<T> {
+
+    public void AddNode(Node<T> node);
+
+    public Set<Node<T>> getNodes();
 }
