@@ -13,7 +13,7 @@ public class Edge<T> {
      * @param node2 node where the edge is extending to
      * @param weight weight of the edge
      */
-    public Edge(Node<T> node1, Node<T> node2, float weight){
+    public Edge(Node<T> node1, Node<T> node2, double weight){
         this.first = node1;
         this.second = node2;
         this.weight = weight;
