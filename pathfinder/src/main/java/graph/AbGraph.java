@@ -26,11 +26,12 @@ public abstract class AbGraph<T> implements IGraph<T> {
     }
 
     @Override
-    public void AddNode(Node<T> node){
+    public Node<T> AddNode(Node<T> node){
         if(graph.containsKey(node)){
-            return;
+            return node;
         }
         graph.put(node , new Edges<T>());
+        return node;
     }
 
 }

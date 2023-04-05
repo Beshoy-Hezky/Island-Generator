@@ -7,7 +7,7 @@ import java.util.Set;
 
 public interface IGraph<T> {
 
-    void AddNode(Node<T> node);
+    Node<T> AddNode(Node<T> node);
 
     Set<Node<T>> getNodes();
 

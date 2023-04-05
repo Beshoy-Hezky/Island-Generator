@@ -1,7 +1,7 @@
 package node;
 
 public class Node<T> {
-    T node;
+    final T node;
 
 
     /**
@@ -16,6 +16,11 @@ public class Node<T> {
      */
     public T getNode() {
         return this.node;
+    }
+
+    // delete later
+    public void printNode(){
+        System.out.print(this.node);
     }
 }
 

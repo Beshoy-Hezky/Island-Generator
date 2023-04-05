@@ -3,7 +3,6 @@ import edge.Edge;
 import edge.Edges;
 import node.Node;
 
-
 public class UndirectedGraphs<T> extends AbGraph<T> {
 
     /**
@@ -21,7 +20,7 @@ public class UndirectedGraphs<T> extends AbGraph<T> {
         Edges<T> edges1 = graph.get(node1);
         Edges<T> edges2 = graph.get(node2);
         edges1.add(new Edge(node1, node2, weight));
-        edges2.add(new Edge(node1, node2, weight));
+        edges2.add(new Edge(node2, node1, weight));
     }
 
 }
