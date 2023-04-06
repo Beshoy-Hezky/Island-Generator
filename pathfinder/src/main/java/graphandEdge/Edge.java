@@ -47,7 +47,7 @@ public class Edge<T> {
      *
      * @return the weight of a double
      */
-    protected double getWeight(){
+    public double getWeight(){
         return this.weight;
     }
 }
