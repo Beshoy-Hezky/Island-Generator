@@ -32,14 +32,14 @@ public class Edge<T> {
     /**
      * @return the first node in a directed edge
      */
-    protected Node<T> getNode1() {
+    public Node<T> getNode1() {
         return first;
     }
 
     /**
      * @return the second node in a directed edge
      */
-    protected Node<T> getNode2() {
+    public Node<T> getNode2() {
         return second;
     }
 

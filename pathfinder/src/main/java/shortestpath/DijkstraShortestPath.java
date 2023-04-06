@@ -31,19 +31,13 @@ public class DijkstraShortestPath<T> implements ShortestPath<T> {
                 }
             }
         }
-
-        for (Node<T> node : path.keySet()) {
-            node.printNode();
-            System.out.print("  :  ");
-            if (path.get(node) != null) {
-                path.get(node).printNode();
-            } else {
-                System.out.print("null");
-            }
-            System.out.println();
+        // if node is unreachable from start node return an empty array
+        if(path.get(node2) == null){
+            return (new ArrayList<Node <T>>());
         }
         return (makelist(path, node1, node2));
     }
+
 
     private List<Node<T>> makelist(Map<Node<T>, Node<T>> path, Node<T> start, Node<T> end) {
         List<Node<T>> answer = new ArrayList<>();
@@ -59,4 +53,15 @@ public class DijkstraShortestPath<T> implements ShortestPath<T> {
         Collections.reverse(answer);
         return answer;
     }
+
+    /*for (Node<T> node : path.keySet()) {
+        node.printNode();
+        System.out.print("  :  ");
+        if (path.get(node) != null) {
+            path.get(node).printNode();
+        } else {
+            System.out.print("null");
+        }
+        System.out.println();
+    }*/
 }

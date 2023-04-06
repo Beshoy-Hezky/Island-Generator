@@ -9,6 +9,7 @@ public class Main {
       UndirectedGraphs<Integer> graph = new UndirectedGraphs<>();
       ShortestPath<Integer> finder = new DijkstraShortestPath<>();
 
+      //This graph is from the class example from 2C03 class I will include a PNG file
       Node<Integer> node0 = graph.AddNode(new Node<>(0));
       Node<Integer> node1 = graph.AddNode(new Node<>(1));
       Node<Integer> node2 = graph.AddNode(new Node<>(2));
@@ -20,9 +21,6 @@ public class Main {
       Node<Integer> node8 = graph.AddNode(new Node<>(8));
       Node<Integer> node9 = graph.AddNode(new Node<>(9));
       Node<Integer> node12 = graph.AddNode(new Node<>(12));
-
-
-
 
 
       graph.AddEdge(node3,node8, 1);
@@ -41,9 +39,12 @@ public class Main {
 
 
       List<Node<Integer>> thelist = finder.shortestpath(graph, node3 ,node9);
+      String string = "";
       for(Node<Integer> node : thelist){
+         System.out.print(string);
+         string = " --> ";
          node.printNode();
-         System.out.println();
+
       }
 
    }
