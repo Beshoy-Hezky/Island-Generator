@@ -21,6 +21,7 @@ public class Edge<T> {
     }
 
     /**
+     * protected so that no one can make an edge outside of this package
      * @param node1 node where the edge is extending out
      * @param node2 node where the edge is extending to
      */
