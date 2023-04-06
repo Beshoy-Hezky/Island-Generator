@@ -37,15 +37,22 @@ public class Main {
       graph.AddEdge(node7,node0, 12);
       graph.AddEdge(node9,node0, 11);
 
+      //shortest path from this node
+      Node<Integer> startNode = node3;
 
-      List<Node<Integer>> thelist = finder.shortestpath(graph, node3 ,node9);
+      //to this node
+      Node<Integer> endNode = node9;
+
+      List<Node<Integer>> thelist = finder.shortestpath(graph, startNode ,endNode);
+      printNodes(thelist);
+   }
+
+   private static void printNodes(List<Node<Integer>> thelist){
       String string = "";
       for(Node<Integer> node : thelist){
          System.out.print(string);
          string = " --> ";
          node.printNode();
-
       }
-
    }
 }

@@ -9,6 +9,7 @@ public class Edge<T> {
     private final double weight;
 
     /**
+     * protected so that no one can make an edge outside of this package
      * @param node1 node where the edge is extending out
      * @param node2 node where the edge is extending to
      * @param weight weight of the edge
