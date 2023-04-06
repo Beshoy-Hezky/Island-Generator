@@ -21,7 +21,9 @@ public class Main {
       Node<Integer> node8 = graph.AddNode(new Node<>(8));
       Node<Integer> node9 = graph.AddNode(new Node<>(9));
       Node<Integer> node12 = graph.AddNode(new Node<>(12));
+      Node<Integer> node11 = graph.AddNode(new Node<>(9));
 
+      System.out.println(node11.equals(node9));
 
       graph.AddEdge(node3,node8, 1);
       graph.AddEdge(node3,node0,9);

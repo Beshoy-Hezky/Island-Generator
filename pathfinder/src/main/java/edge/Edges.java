@@ -1,7 +1,5 @@
 package edge;
 
-
-import edge.Edge;
 import node.Node;
 import datastructures.UniqueList;
 
