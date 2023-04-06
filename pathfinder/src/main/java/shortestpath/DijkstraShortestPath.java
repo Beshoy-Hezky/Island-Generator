@@ -1,6 +1,6 @@
 package shortestpath;
-import edge.Edge;
-import graph.IGraph;
+import graphandEdge.Edge;
+import graphandEdge.IGraph;
 import node.Node;
 import java.util.*;
 

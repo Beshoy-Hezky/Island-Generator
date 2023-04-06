@@ -1,4 +1,4 @@
-import graph.UndirectedGraphs;
+import graphandEdge.UndirectedGraphs;
 import node.Node;
 import shortestpath.DijkstraShortestPath;
 import shortestpath.ShortestPath;
@@ -8,16 +8,21 @@ public class Main {
    public static void main(String[] args) {
       UndirectedGraphs<Integer> graph = new UndirectedGraphs<>();
       ShortestPath<Integer> finder = new DijkstraShortestPath<>();
-      Node<Integer> node3 = graph.AddNode(new Node<>(3));
-      Node<Integer> node8 = graph.AddNode(new Node<>(8));
+
       Node<Integer> node0 = graph.AddNode(new Node<>(0));
-      Node<Integer> node2 = graph.AddNode(new Node<>(2));
       Node<Integer> node1 = graph.AddNode(new Node<>(1));
-      Node<Integer> node5 = graph.AddNode(new Node<>(5));
-      Node<Integer> node9 = graph.AddNode(new Node<>(9));
+      Node<Integer> node2 = graph.AddNode(new Node<>(2));
+      Node<Integer> node3 = graph.AddNode(new Node<>(3));
       Node<Integer> node4 = graph.AddNode(new Node<>(4));
+      Node<Integer> node5 = graph.AddNode(new Node<>(5));
       Node<Integer> node6 = graph.AddNode(new Node<>(6));
       Node<Integer> node7 = graph.AddNode(new Node<>(7));
+      Node<Integer> node8 = graph.AddNode(new Node<>(8));
+      Node<Integer> node9 = graph.AddNode(new Node<>(9));
+      Node<Integer> node12 = graph.AddNode(new Node<>(12));
+
+
+
 
 
       graph.AddEdge(node3,node8, 1);

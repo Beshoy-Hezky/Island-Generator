@@ -1,6 +1,5 @@
-package graph;
+package graphandEdge;
 
-import edge.Edges;
 import node.Node;
 
 import java.util.Set;

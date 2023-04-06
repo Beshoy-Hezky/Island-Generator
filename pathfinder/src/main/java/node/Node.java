@@ -3,7 +3,6 @@ package node;
 public class Node<T> {
     final T node;
 
-
     /**
      * @param node pass in a node
      */

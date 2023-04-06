@@ -1,6 +1,4 @@
-package graph;
-import edge.Edge;
-import edge.Edges;
+package graphandEdge;
 import node.Node;
 
 public class UndirectedGraphs<T> extends AbGraph<T> {

@@ -1,5 +1,4 @@
-package graph;
-import edge.Edges;
+package graphandEdge;
 import node.Node;
 import java.util.HashMap;
 import java.util.HashSet;
