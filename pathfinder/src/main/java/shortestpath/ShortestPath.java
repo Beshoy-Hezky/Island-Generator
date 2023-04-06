@@ -1,7 +1,7 @@
 package shortestpath;
 
 
-import graphandEdge.IGraph;
+import graph.IGraph;
 import node.Node;
 
 import java.util.List;

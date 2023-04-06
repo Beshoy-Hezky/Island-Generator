@@ -1,4 +1,4 @@
-package graphandEdge;
+package edge;
 
 import node.Node;
 
@@ -49,7 +49,7 @@ public class Edge<T> {
      *
      * @return the weight of a double
      */
-    public double getWeight(){
+    public Double getWeight(){
         return this.weight;
     }
 }

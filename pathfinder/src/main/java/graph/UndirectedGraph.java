@@ -1,7 +1,8 @@
-package graphandEdge;
+package graph;
+import edge.Edges;
 import node.Node;
 
-public class UndirectedGraphs<T> extends AbGraph<T> {
+public class UndirectedGraph<T> extends AbGraph<T> {
 
     /**
      * Adds the edge into existing node in both ways
@@ -13,12 +14,12 @@ public class UndirectedGraphs<T> extends AbGraph<T> {
            throw new IllegalArgumentException("node 1 does not exist");
         }
         else if(!graph.containsKey(node2)){
-            throw new IllegalArgumentException("node 1 does not exist");
+            throw new IllegalArgumentException("node 2 does not exist");
         }
         Edges<T> edges1 = graph.get(node1);
         Edges<T> edges2 = graph.get(node2);
-        edges1.add(new Edge(node1, node2, weight));
-        edges2.add(new Edge(node2, node1, weight));
+        edges1.addEdge(node1, node2, weight);
+        edges2.addEdge(node2, node1, weight);
     }
 
 }

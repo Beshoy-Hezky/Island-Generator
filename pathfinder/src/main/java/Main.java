@@ -1,4 +1,4 @@
-import graphandEdge.UndirectedGraphs;
+import graph.UndirectedGraph;
 import node.Node;
 import shortestpath.DijkstraShortestPath;
 import shortestpath.ShortestPath;
@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
    public static void main(String[] args) {
-      UndirectedGraphs<Integer> graph = new UndirectedGraphs<>();
+      UndirectedGraph<Integer> graph = new UndirectedGraph<>();
       ShortestPath<Integer> finder = new DijkstraShortestPath<>();
 
       //This graph is from the class example from 2C03 class I will include a PNG file
