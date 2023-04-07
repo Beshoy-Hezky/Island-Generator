@@ -1,53 +1,42 @@
 package node;
 
-public class Node<T> {
-    T node;
+import java.util.Objects;
 
-    private double x; // x, y, z
-    private double y;
-    private double z;
+public class Node<T> {
+    private final T obj;
 
     /**
      * @param node pass in a node
      */
     public Node(T node) {
-        this.node = node;
-        this.x = 0;
-        this.y = 0;
-        this.z = 0;
+        this.obj = node;
     }
 
-    /**
-     * @param node the object
-     * @param x    x coordinate
-     * @param y    y coordinate
-     * @param z    z coordinate
-     */
-    public Node(T node, float x, float y, float z) {
-        this.node = node;
-        this.x = x;
-        this.x = x;
-        this.x = x;
+    // delete later
+    public void printNode(){
+        System.out.print(this.obj);
     }
 
-    /**
-     * @return the node
-     */
-    public T getNode() {
-        return this.node;
+   /* @Override
+    public boolean equals(Object o){
+        Node<T> card = (Node<T>) o;
+        if(this.node == ((Node<?>) o).node){
+            return true;
+        }
+        return false;
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node<?> node = (Node<?>) o;
+        return Objects.equals(obj, node.obj);
     }
 
-    public double getX() {
-        return this.x;
+    @Override
+    public int hashCode() {
+        return Objects.hash(obj);
     }
-
-    public double getY() {
-        return this.y;
-    }
-
-    public double getZ() {
-        return this.z;
-    }
-
 }
 

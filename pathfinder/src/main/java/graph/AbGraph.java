@@ -9,6 +9,10 @@ import java.util.Set;
 public abstract class AbGraph<T> implements IGraph<T> {
     protected Map<Node<T>, Edges<T>> graph = new HashMap<>();
 
+    /**
+     *
+     * @return return a set of nodes of the graph
+     */
     public Set<Node<T>> getNodes() {
         Set<Node<T>> allnodes = new HashSet<>();
         for(Node<T> node : graph.keySet()){
@@ -17,6 +21,12 @@ public abstract class AbGraph<T> implements IGraph<T> {
         return allnodes;
     }
 
+
+    /**
+     *
+     * @param node the node that you want the edges connected to
+     * @return the arraylist that stores the edges
+     */
     public Edges<T> EdgesOf(Node<T> node) {
         if(!graph.containsKey(node)){
             throw new IllegalArgumentException("this node does not exist");
@@ -26,11 +36,12 @@ public abstract class AbGraph<T> implements IGraph<T> {
     }
 
     @Override
-    public void AddNode(Node<T> node){
+    public Node<T> AddNode(Node<T> node){
         if(graph.containsKey(node)){
-            return;
+            return node;
         }
         graph.put(node , new Edges<T>());
+        return node;
     }
 
 }
