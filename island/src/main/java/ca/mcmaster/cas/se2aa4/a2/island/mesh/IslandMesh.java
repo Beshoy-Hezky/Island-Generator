@@ -9,6 +9,7 @@ import ca.mcmaster.cas.se2aa4.a2.island.tile.Tile;
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.mesh.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.polygon.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.services.Converter;
+import ca.mcmaster.cas.se2aa4.a2.mesh.adt.vertex.Vertex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,5 +87,9 @@ public class IslandMesh implements Converter<Mesh> {
     @Override
     public Mesh getConverted() {
         return this.mesh;
+    }
+
+    public List<Vertex> getMeshVertices(){
+        return mesh.getVertices();
     }
 }
