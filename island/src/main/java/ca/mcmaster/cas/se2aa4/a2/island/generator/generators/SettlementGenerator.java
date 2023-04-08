@@ -3,12 +3,9 @@ package ca.mcmaster.cas.se2aa4.a2.island.generator.generators;
 import ca.mcmaster.cas.se2aa4.a2.island.geography.Land;
 import ca.mcmaster.cas.se2aa4.a2.island.settlement.City;
 import ca.mcmaster.cas.se2aa4.a2.island.settlement.ISettlement;
-
 import ca.mcmaster.cas.se2aa4.a2.island.tile.Tile;
 import ca.mcmaster.cas.se2aa4.a2.island.tile.type.TileType;
-
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.vertex.Vertex;
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -20,6 +17,11 @@ public class SettlementGenerator {
     private List<ISettlement> Settlementlist = new ArrayList<>();
     private Set<Vertex> landvertices = new HashSet<>();
 
+    /**
+     * this function gets the vertices that are not ocean or river
+     * @param land land to get the land tiles
+     * @param cities number of cities
+     */
     public void generateSettlement(Land land, int cities) {
         List<Tile> tiles = land.getTiles().stream().filter(tile -> tile.getType() != TileType.OCEAN && tile.getType() != TileType.LAND_WATER).toList();
         for (Tile tile : tiles) {
@@ -27,14 +29,15 @@ public class SettlementGenerator {
                 landvertices.add(vertex);
             }
         }
-
         addCities(cities);
-
 
         generate();
     }
 
 
+    /**
+     * generate the vertices to the specific color and thickness
+     */
     private void generate() {
         for (ISettlement obj : Settlementlist) {
             Vertex vertex = obj.getVertex();
@@ -43,6 +46,10 @@ public class SettlementGenerator {
         }
     }
 
+    /**
+     * Adds cities to the list of settlements
+     * @param cities the number of cities generates
+     */
     public void addCities(int cities) {
         Random rand = new Random();
         int num = rand.nextInt(11) + 5;
