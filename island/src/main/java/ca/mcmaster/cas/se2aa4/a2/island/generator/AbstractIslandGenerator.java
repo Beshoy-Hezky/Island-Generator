@@ -154,4 +154,8 @@ public abstract class AbstractIslandGenerator implements IslandGenerator {
     private void biomeHandling(Land land, Biome biome) {
         land.getTiles().forEach(biome::takeTile);
     }
+
+    public Land getLand(){
+        return this.land;
+    }
 }

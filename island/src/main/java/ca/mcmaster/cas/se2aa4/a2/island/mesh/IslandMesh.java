@@ -89,7 +89,4 @@ public class IslandMesh implements Converter<Mesh> {
         return this.mesh;
     }
 
-    public List<Vertex> getMeshVertices(){
-        return mesh.getVertices();
-    }
 }

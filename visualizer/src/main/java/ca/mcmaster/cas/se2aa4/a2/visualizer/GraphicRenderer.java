@@ -48,8 +48,9 @@ public class GraphicRenderer {
         mesh.getNonCentroidVertices().forEach(vertex -> {
             if(this.isDebug) {
                 vertex.setColor(Color.BLACK);
-                vertex.render(canvas);
             }
+          //  vertex.setColor(new Color(0,0,0));
+            vertex.render(canvas);
         });
 
         if(this.isDebug) {

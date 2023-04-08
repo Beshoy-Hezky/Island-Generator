@@ -44,4 +44,6 @@ public class RandomIslandGenerator extends AbstractIslandGenerator {
         List<Lake> generatedLakes = generator.generate(rand, numLakes);
         generatedLakes.forEach(land::addLake);
     }
+
+
 }
