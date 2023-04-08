@@ -38,7 +38,7 @@ public class Main {
             }
 
             SettlementGenerator settlement = new SettlementGenerator();
-            settlement.generateSettlement(generator.getLand() ,12);
+            settlement.generateSettlement(generator.getLand() ,IslandInputHandler.getNumCities(handler));
 
             /*mesh.getConverted().getVertices().get(40).setThickness(50);
             mesh.getConverted().getVertices().get(40).setColor(new Color(255,0,0));*/

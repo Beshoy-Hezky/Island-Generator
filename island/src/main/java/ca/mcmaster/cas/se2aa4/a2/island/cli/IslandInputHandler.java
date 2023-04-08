@@ -41,6 +41,7 @@ public class IslandInputHandler {
             Map.entry(OutputOption.OPTION_STR, new OutputOption()),
             Map.entry(ShapeOption.OPTION_STR, new ShapeOption()),
             Map.entry(LakesOption.OPTION_STR, new LakesOption()),
+            Map.entry(CitiesOption.OPTION_STR, new CitiesOption()),
             Map.entry(AltimeterProfileOption.OPTION_STR, new AltimeterProfileOption()),
             Map.entry(AquiferOption.OPTION_STR, new AquiferOption()),
             Map.entry(RiversOption.OPTION_STR, new RiversOption()),
@@ -173,6 +174,35 @@ public class IslandInputHandler {
         }
 
         return numLakes;
+    }
+
+    /**
+     *
+     * @param handler The {@link InputHandler} to get the number of cities input from the user's input
+     * @return The number of cities set by the user
+     * @throws IllegalInputException if the cites is inappropriate
+     */
+    public static int getNumCities(InputHandler handler) throws IllegalInputException {
+        String value = handler.getOptionValue(
+                IslandInputHandler.getIslandOption(CitiesOption.OPTION_STR),
+                CitiesOption.DEFAULT_VALUE
+        );
+
+        int numCities = -1;
+
+        try {
+            numCities = Integer.parseInt(value);
+
+            if(numCities < 0)
+                throw new IllegalArgumentException();
+        } catch(NumberFormatException e) {
+            String message = String.format("Invalid number %s!", value);
+            handler.printHelp(message);
+        } catch (IllegalArgumentException e) {
+            handler.printHelp("Cannot have a negative number of cities!");
+        }
+
+        return numCities;
     }
 
     /**
