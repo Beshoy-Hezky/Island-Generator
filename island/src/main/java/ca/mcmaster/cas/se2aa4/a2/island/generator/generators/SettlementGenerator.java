@@ -4,17 +4,14 @@ import ca.mcmaster.cas.se2aa4.a2.island.geography.Land;
 import ca.mcmaster.cas.se2aa4.a2.island.settlement.City;
 import ca.mcmaster.cas.se2aa4.a2.island.settlement.ISettlement;
 
-import ca.mcmaster.cas.se2aa4.a2.island.settlement.Village;
 import ca.mcmaster.cas.se2aa4.a2.island.tile.Tile;
 import ca.mcmaster.cas.se2aa4.a2.island.tile.type.TileType;
 
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.vertex.Vertex;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -23,7 +20,7 @@ public class SettlementGenerator {
     private List<ISettlement> Settlementlist = new ArrayList<>();
     private Set<Vertex> landvertices = new HashSet<>();
 
-    public void generateSettlement(Land land, int cities, int villages) {
+    public void generateSettlement(Land land, int cities) {
         List<Tile> tiles = land.getTiles().stream().filter(tile -> tile.getType() != TileType.OCEAN && tile.getType() != TileType.LAND_WATER).toList();
         for (Tile tile : tiles) {
             for (Vertex vertex : tile.getPolygon().getVertices()) {
@@ -32,7 +29,7 @@ public class SettlementGenerator {
         }
 
         addCities(cities);
-        addVillages(villages);
+
 
         generate();
     }
@@ -47,21 +44,16 @@ public class SettlementGenerator {
     }
 
     public void addCities(int cities) {
+        Random rand = new Random();
+        int num = rand.nextInt(11) + 5;
         List<Vertex> citieslist = landvertices.stream().limit(cities).collect(Collectors.toList());
         landvertices.removeAll(citieslist);
         for (Vertex vertex : citieslist) {
-            Settlementlist.add(new City(vertex));
+            Settlementlist.add(new City(vertex, rand.nextInt(11) + 5));
 
         }
     }
 
-    public void addVillages(int villages) {
-        List<Vertex> villageslist = landvertices.stream().limit(villages).collect(Collectors.toList());
-        landvertices.removeAll(villageslist);
-        for (Vertex vertex : villageslist) {
-            Settlementlist.add(new Village(vertex));
-        }
-    }
 
 }
 
