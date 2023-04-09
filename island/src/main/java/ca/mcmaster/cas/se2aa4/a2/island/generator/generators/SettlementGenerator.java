@@ -6,6 +6,8 @@ import ca.mcmaster.cas.se2aa4.a2.island.settlement.ISettlement;
 import ca.mcmaster.cas.se2aa4.a2.island.tile.Tile;
 import ca.mcmaster.cas.se2aa4.a2.island.tile.type.TileType;
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.vertex.Vertex;
+import node.Node;
+
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -22,7 +24,7 @@ public class SettlementGenerator {
      * @param land land to get the land tiles
      * @param cities number of cities
      */
-    public void generateSettlement(Land land, int cities) {
+    public List<Node<Vertex>> generateSettlement(Land land, int cities) {
         List<Tile> tiles = land.getTiles().stream().filter(tile -> tile.getType() != TileType.OCEAN && tile.getType() != TileType.LAND_WATER).toList();
         for (Tile tile : tiles) {
             for (Vertex vertex : tile.getPolygon().getVertices()) {
@@ -31,19 +33,22 @@ public class SettlementGenerator {
         }
         addCities(cities);
 
-        generate();
+        return generate();
     }
 
 
     /**
      * generate the vertices to the specific color and thickness
      */
-    private void generate() {
+    private List<Node<Vertex>> generate() {
+        List<Node<Vertex>> vertices_of_settlements = new ArrayList<>();
         for (ISettlement obj : Settlementlist) {
             Vertex vertex = obj.getVertex();
+            vertices_of_settlements.add(new Node<>(vertex));
             vertex.setThickness(obj.getThickness());
             vertex.setColor(new Color(255, 0, 0));
         }
+        return vertices_of_settlements;
     }
 
     /**

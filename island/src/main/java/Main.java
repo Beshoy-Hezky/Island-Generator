@@ -7,12 +7,15 @@ import ca.mcmaster.cas.se2aa4.a2.island.humidity.soil.SoilAbsorptionProfile;
 import ca.mcmaster.cas.se2aa4.a2.island.io.MeshReader;
 import ca.mcmaster.cas.se2aa4.a2.island.io.MeshWriter;
 import ca.mcmaster.cas.se2aa4.a2.island.mesh.IslandMesh;
+import ca.mcmaster.cas.se2aa4.a2.island.mesh.PathFactory;
 import ca.mcmaster.cas.se2aa4.a2.mesh.adt.vertex.Vertex;
 import ca.mcmaster.cas.se2aa4.a2.mesh.cli.InputHandler;
 import ca.mcmaster.cas.se2aa4.a2.mesh.cli.exceptions.IllegalInputException;
+import node.Node;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -38,8 +41,9 @@ public class Main {
             }
 
             SettlementGenerator settlement = new SettlementGenerator();
-            settlement.generateSettlement(generator.getLand() ,IslandInputHandler.getNumCities(handler));
-
+            List<Node<Vertex>> settlements = settlement.generateSettlement(generator.getLand() ,IslandInputHandler.getNumCities(handler));
+            PathFactory pathFactory = new PathFactory();
+            pathFactory.build(mesh, settlements);
             /*mesh.getConverted().getVertices().get(40).setThickness(50);
             mesh.getConverted().getVertices().get(40).setColor(new Color(255,0,0));*/
 

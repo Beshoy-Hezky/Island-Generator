@@ -17,14 +17,9 @@ public class Node<T> {
         System.out.print(this.obj);
     }
 
-   /* @Override
-    public boolean equals(Object o){
-        Node<T> card = (Node<T>) o;
-        if(this.node == ((Node<?>) o).node){
-            return true;
-        }
-        return false;
-    }*/
+    public T getObj() {
+        return obj;
+    }
 
     @Override
     public boolean equals(Object o) {
