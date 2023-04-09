@@ -36,7 +36,7 @@ public abstract class AbGraph<T> implements IGraph<T> {
     }
 
     @Override
-    public Node<T> AddNode(Node<T> node){
+    public Node<T> addNode(Node<T> node){
         if(graph.containsKey(node)){
             return node;
         }
