@@ -1,0 +1,72 @@
+@startuml
+interface shortestpath.ShortestPath {
++ List<Node<T>> shortestpath(IGraph<T>,Node<T>,Node<T>,boolean)
+}
+class graph.DirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class datastructures.UniqueList {
++ boolean add(E)
+}
+interface graph.IGraph {
+~ Node<T> addNode(Node<T>)
+~ Set<Node<T>> getNodes()
+~ Edges<T> EdgesOf(Node<T>)
++ void addEdge(Node<T>,Node<T>,double)
+}
+class edge.Edge {
++ Node<T> getNode1()
++ Node<T> getNode2()
++ Double getWeight()
+}
+class edge.Edges {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class node.Node {
++ <<Create>> Node(T)
++ void printNode()
++ T getObj()
++ boolean equals(Object)
++ int hashCode()
+}
+class graph.UndirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class ShortestPathTest {
+~ {static} IGraph<Integer> graph
+~ {static} ShortestPath<Integer> finder
+~ {static} Node<Integer> node0
+~ {static} Node<Integer> node1
+~ {static} Node<Integer> node2
+~ {static} Node<Integer> node3
+~ {static} Node<Integer> node4
+~ {static} Node<Integer> node5
+~ {static} Node<Integer> node6
+~ {static} Node<Integer> node7
+~ {static} Node<Integer> node8
+~ {static} Node<Integer> node9
++ {static} void beforeTest()
++ void testPath()
+}
+abstract class graph.AbGraph {
++ Set<Node<T>> getNodes()
++ Edges<T> EdgesOf(Node<T>)
++ Node<T> addNode(Node<T>)
+}
+class shortestpath.DijkstraShortestPath {
++ List<Node<T>> shortestpath(IGraph<T>,Node<T>,Node<T>,boolean)
+}
+class Main {
++ {static} void main(String[])
+}
+
+
+graph.IGraph <|.. graph.DirectedGraph
+graph.AbGraph <|-- graph.DirectedGraph
+java.util.ArrayList <|-- datastructures.UniqueList
+datastructures.UniqueList <|-- edge.Edges
+graph.IGraph <|.. graph.UndirectedGraph
+graph.AbGraph <|-- graph.UndirectedGraph
+graph.IGraph <|.. graph.AbGraph
+shortestpath.ShortestPath <|.. shortestpath.DijkstraShortestPath
+@enduml

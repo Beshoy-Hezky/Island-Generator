@@ -4,10 +4,17 @@ import graph.IGraph;
 import node.Node;
 import java.util.*;
 
-//used inspiration from pseudocode of SFWRENG2C03 slides part 4
+//used inspiration from the pseudocode of SFWRENG2C03 slides 'part 4'
 public class DijkstraShortestPath<T> implements ShortestPath<T> {
     @Override
-    public List<Node<T>> shortestpath(IGraph<T> graph, Node<T> node1, Node<T> node2) {
+    public List<Node<T>> shortestpath(IGraph<T> graph, Node<T> node1, Node<T> node2, boolean print) {
+        if(!graph.getNodes().contains(node1)){
+            throw new IllegalArgumentException("node 1 does not exist");
+        }
+        else if(!graph.getNodes().contains(node2)){
+            throw new IllegalArgumentException("node 2 does not exist");
+        }
+
         Map<Node<T>, Node<T>> path = new HashMap<>();
         Map<Node<T>, Double> cost = new HashMap<>();
         graph.getNodes().forEach(node -> {
@@ -31,14 +38,32 @@ public class DijkstraShortestPath<T> implements ShortestPath<T> {
                 }
             }
         }
-        // if node is unreachable from start node return an empty array
-        if(path.get(node2) == null){
-            return (new ArrayList<Node <T>>());
+
+        List<Node<T>> answer_path;
+        // if there is no path between both nodes
+        if(path.get(node2) == null || path.get(node1) == null){
+            List<Node<T>> empty_answer= new ArrayList<>();
+            return empty_answer;
         }
-        return (makelist(path, node1, node2));
+            answer_path = makelist(path, node1, node2);
+
+
+        // print nodes if needed
+        if(print){
+            printNodes(answer_path);
+        }
+
+        return (answer_path);
     }
 
 
+    /**
+     * Helper function to convert the hashmap returned by Dijkstra's algorithm into a list of vertices
+     * @param path the hashmap returned by Dijkstra's
+     * @param start the starting node of the pathway you want to form
+     * @param end the ending node of the pathway you want to form
+     * @return
+     */
     private List<Node<T>> makelist(Map<Node<T>, Node<T>> path, Node<T> start, Node<T> end) {
         List<Node<T>> answer = new ArrayList<>();
         Node<T> node = end;
@@ -54,14 +79,17 @@ public class DijkstraShortestPath<T> implements ShortestPath<T> {
         return answer;
     }
 
-    /*for (Node<T> node : path.keySet()) {
-        node.printNode();
-        System.out.print("  :  ");
-        if (path.get(node) != null) {
-            path.get(node).printNode();
-        } else {
-            System.out.print("null");
+    /**
+     * optional function to help print the nodes nicely into terminal for the client/user
+     * @param thelist list of nodes you want to print
+     */
+    private void printNodes(List<Node<T>> thelist){
+        String string = "";
+        for(Node<T> node : thelist){
+            System.out.print(string);
+            string = " --> ";
+            node.printNode();
         }
-        System.out.println();
-    }*/
+    }
+
 }

@@ -1,3 +1,4 @@
+import graph.IGraph;
 import graph.UndirectedGraph;
 import node.Node;
 import shortestpath.DijkstraShortestPath;
@@ -6,7 +7,7 @@ import java.util.List;
 
 public class Main {
    public static void main(String[] args) {
-      UndirectedGraph<Integer> graph = new UndirectedGraph<>();
+      IGraph<Integer> graph = new UndirectedGraph<>();
       ShortestPath<Integer> finder = new DijkstraShortestPath<>();
 
       //This graph is from the class example from 2C03 class I will include a PNG file
@@ -21,9 +22,6 @@ public class Main {
       Node<Integer> node8 = graph.addNode(new Node<>(8));
       Node<Integer> node9 = graph.addNode(new Node<>(9));
       Node<Integer> node12 = graph.addNode(new Node<>(12));
-      Node<Integer> node11 = graph.addNode(new Node<>(9));
-
-      System.out.println(node11.equals(node9));
 
       graph.addEdge(node3,node8, 1);
       graph.addEdge(node3,node0,9);
@@ -43,18 +41,11 @@ public class Main {
       Node<Integer> startNode = node3;
 
       //to this node
-      Node<Integer> endNode = node9;
+      Node<Integer> endNode = node12;
 
-      List<Node<Integer>> thelist = finder.shortestpath(graph, startNode ,endNode);
-      printNodes(thelist);
+      List<Node<Integer>> thelist = finder.shortestpath(graph, startNode ,endNode, true);
+
    }
 
-   private static void printNodes(List<Node<Integer>> thelist){
-      String string = "";
-      for(Node<Integer> node : thelist){
-         System.out.print(string);
-         string = " --> ";
-         node.printNode();
-      }
-   }
+
 }

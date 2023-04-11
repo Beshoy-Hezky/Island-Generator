@@ -6,13 +6,13 @@ public class Node<T> {
     private final T obj;
 
     /**
-     * @param node pass in a node
+     * constructor for a node
+     * @param node pass in an object
      */
     public Node(T node) {
         this.obj = node;
     }
 
-    // delete later
     public void printNode(){
         System.out.print(this.obj);
     }

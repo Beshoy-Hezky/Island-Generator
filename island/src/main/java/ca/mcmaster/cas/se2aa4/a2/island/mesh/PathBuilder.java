@@ -25,7 +25,7 @@ public class PathBuilder {
         DijkstraShortestPath<Vertex> pathway = new DijkstraShortestPath<>();
         IGraph <Vertex> graph = makeGraph(land);
         for(int i = 1; i < settlements.size(); i++){
-            List<Node<Vertex>> listofvertices = pathway.shortestpath(graph, settlements.get(0), settlements.get(i));
+            List<Node<Vertex>> listofvertices = pathway.shortestpath(graph, settlements.get(0), settlements.get(i), false);
             visualizePathFinder(islandMesh, listofvertices);
         }
 
