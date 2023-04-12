@@ -74,6 +74,29 @@ mosser@azrael island % ls -lh island.mesh
 mosser@azrael island % 
 ```
 
+### Island Generator
+The `pathfinder` project includes a Graph ADT and it also has an algorithm (Dijkstra's shortest path algorithm) to find the shortest path between two nodes. The project is built using generic programming so that it can work for any type of
+object. 
+
+It includes:
+1. A Node class that stores an object of type T.
+2. Edge class that stores 2 nodes of type T
+3. A graph class where you can make a graph using adjaceny list representation. Directed and Undirected graphs are both provided.
+4. A shortest path class which can be used to find the shortest path between 2 nodes in a graph.
+
+An example on how to use it:
+1. To run this package first you need to make a graph `IGraph<Integer> graph = new UndirectedGraph<>();`
+2. Then you need to choose a shortest path algorithm you want to use `ShortestPath<Integer> finder = new DijkstraShortestPath<>();`
+3. Then you need to make your nodes `Node<Integer> node5 = graph.addNode(new Node<>(5));
+         Node<Integer> node6 = graph.addNode(new Node<>(6));`
+4. Then build the edges `graph.addEdge(node6,node5, 3);`
+5. Then if you want to find the shortest path between 2 nodes.
+`Node<Integer> startNode = node3;   `
+`Node<Integer> endNode = node12;     `
+   `List<Node<Integer>> thelist = finder.shortestpath(graph, startNode ,endNode, true);`
+6. Set the last parameter to true if you want to print your result in the terminal.
+
+
 ### Visualizer
 
 To visualize an existing mesh, go to the `visualizer` directory, and use `java -jar` to run the product. The product take two arguments (so far): the file containing the mesh, and the name of the file to store the visualization (as an SVG image).
