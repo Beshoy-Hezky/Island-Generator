@@ -1,0 +1,27 @@
+@startuml
+class graph.DirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class graph.UndirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+abstract class graph.AbGraph {
+# Map<Node<T>,Edges<T>> graph
++ Set<Node<T>> getNodes()
++ Edges<T> EdgesOf(Node<T>)
++ Node<T> addNode(Node<T>)
+}
+interface graph.IGraph {
+~ Node<T> addNode(Node<T>)
+~ Set<Node<T>> getNodes()
+~ Edges<T> EdgesOf(Node<T>)
++ void addEdge(Node<T>,Node<T>,double)
+}
+
+
+graph.IGraph <|.. graph.DirectedGraph
+graph.AbGraph <|-- graph.DirectedGraph
+graph.IGraph <|.. graph.UndirectedGraph
+graph.AbGraph <|-- graph.UndirectedGraph
+graph.IGraph <|.. graph.AbGraph
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+interface shortestpath.ShortestPath {
++ List<Node<T>> shortestpath(IGraph<T>,Node<T>,Node<T>,boolean)
+}
+class graph.DirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class datastructures.UniqueList {
++ boolean add(E)
+}
+class edge.Edges {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class node.Node {
++ void printNode()
++ T getObj()
++ boolean equals(Object)
++ int hashCode()
+}
+class graph.UndirectedGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+abstract class graph.AbGraph {
++ Set<Node<T>> getNodes()
++ Edges<T> EdgesOf(Node<T>)
++ Node<T> addNode(Node<T>)
+}
+interface graph.IGraph {
++ void addEdge(Node<T>,Node<T>,double)
+}
+class shortestpath.DijkstraShortestPath {
++ List<Node<T>> shortestpath(IGraph<T>,Node<T>,Node<T>,boolean)
+}
+class edge.Edge {
++ Node<T> getNode1()
++ Node<T> getNode2()
++ Double getWeight()
+}
+class Main {
++ {static} void main(String[])
+}
+
+
+graph.IGraph <|.. graph.DirectedGraph
+graph.AbGraph <|-- graph.DirectedGraph
+java.util.ArrayList <|-- datastructures.UniqueList
+datastructures.UniqueList <|-- edge.Edges
+graph.IGraph <|.. graph.UndirectedGraph
+graph.AbGraph <|-- graph.UndirectedGraph
+graph.IGraph <|.. graph.AbGraph
+shortestpath.ShortestPath <|.. shortestpath.DijkstraShortestPath
+@enduml

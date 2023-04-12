@@ -15,6 +15,10 @@ IslandGenerator -> IslandGenerator: generateLakes()
 IslandGenerator -> IslandGenerator: generateRivers()
 IslandGenerator -> IslandGenerator: generateHumidity()
 IslandGenerator -> IslandGenerator: biomeHandling()
+activate SettlementGenerator
+Main -> SettlementGenerator: generateSettlement()
+activate PathBuilder
+Main -> PathBuilder: build()
 IslandGenerator --> Main
 activate MeshWriter
 Main -> MeshWriter: MeshWriter.getMesh()
