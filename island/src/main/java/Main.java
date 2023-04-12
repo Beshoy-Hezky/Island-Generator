@@ -40,7 +40,7 @@ public class Main {
             }
 
             SettlementGenerator settlement = new SettlementGenerator();
-            List<Node<Vertex>> settlementslist = settlement.generateSettlement(generator.getLand() ,IslandInputHandler.getNumCities(handler));
+            List<Node<Vertex>> settlementslist = settlement.generateSettlement(generator.getLand() ,IslandInputHandler.getNumCities(handler), generator.getSeed());
 
 
             PathBuilder pathFactory = new PathBuilder();

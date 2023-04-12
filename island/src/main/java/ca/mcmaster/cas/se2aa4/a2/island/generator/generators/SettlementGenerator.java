@@ -17,20 +17,19 @@ public class SettlementGenerator {
     private List<ISettlement> Settlementlist = new ArrayList<>();
     private Set<Vertex> landvertices = new HashSet<>();
 
+    private long seed;
     /**
      * this function gets the vertices that are not ocean or river
      * @param land land to get the land tiles
      * @param cities number of cities
      * @return return the list of Node<Vertex> that are settlements
      */
-    public List<Node<Vertex>> generateSettlement(Land land, int cities) {
+    public List<Node<Vertex>> generateSettlement(Land land, int cities, long seed) {
         List<Tile> tiles = land.getTiles().stream().filter(tile -> tile.getType() != TileType.OCEAN && tile.getType() != TileType.LAND_WATER).toList();
         for (Tile tile : tiles) {
-            for (Vertex vertex : tile.getPolygon().getVertices()) {
-                landvertices.add(vertex);
-            }
+            landvertices.addAll(tile.getPolygon().getVertices());
         }
-        addCities(cities);
+        addCities(cities, seed);
 
         return generate();
     }
@@ -55,13 +54,13 @@ public class SettlementGenerator {
      * Adds cities to the list of settlements
      * @param cities the number of cities generates
      */
-    public void addCities(int cities) {
-        Random rand = new Random();
+    public void addCities(int cities, long seed) {
+        Random rand = new Random(seed);
         int num = rand.nextInt(11) + 5;
-        List<Vertex> citieslist = landvertices.stream().limit(cities).collect(Collectors.toList());
-        landvertices.removeAll(citieslist);
+        List<Vertex> citieslist = landvertices.stream().limit(cities).toList();
+        citieslist.forEach(landvertices::remove);
         for (Vertex vertex : citieslist) {
-            Settlementlist.add(new City(vertex, rand.nextInt(11) + 5));
+            Settlementlist.add(new City(vertex, num));
 
         }
     }
