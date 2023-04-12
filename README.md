@@ -74,7 +74,7 @@ mosser@azrael island % ls -lh island.mesh
 mosser@azrael island % 
 ```
 
-### Island Generator
+### PathFinder
 The `pathfinder` project includes a Graph ADT and it also has an algorithm (Dijkstra's shortest path algorithm) to find the shortest path between two nodes. The project is built using generic programming so that it can work for any type of
 object. 
 

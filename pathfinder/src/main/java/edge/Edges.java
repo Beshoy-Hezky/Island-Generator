@@ -35,6 +35,12 @@ public class Edges<T> extends UniqueList<Edge<T>> {
         return false;
     }
 
+    /**
+     * Edges can only be constructed through the edges array list and it will first check if it already contains it
+     * @param node1 first node of the edge
+     * @param node2 second node of the edge
+     * @param weight weight of that edge
+     */
     public void addEdge(Node<T> node1, Node<T> node2, double weight){
         if(!this.EdgeContain(node1, node2,weight)){
             this.add(new Edge<T>(node1, node2, weight));
