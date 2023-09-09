@@ -1,4 +1,9 @@
-# Assignment A2: Mesh Generator
+# CITY GENERATOR
+
+## How to use 
+[Click here for video](https://youtu.be/FYTMtUWe_ak?si=ds5aGJfFMIrW4WsN)
+
+## Contributers
 
   - Omar Shehada [shehadao@mcmaster.ca]
   - Abdallah Alqashqish [alqashqa@mcmaster.ca]
@@ -10,6 +15,7 @@ _Features number meaning shown in product backlog below_
 - Beshoy worked on features: 1,3,4,5,7,8,9,11,12,13,15,19 + making cities + making pathways to central city
 - Omar worked on features: 2,4,10,16,17,18,20,21
 - Abdallah worked on features: 1,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20
+
 ## How to run the product
 
 _This section needs to be edited to reflect how the user can interact with the feature released in your project_
